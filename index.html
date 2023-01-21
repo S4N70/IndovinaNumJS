@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indovina Numero</title>
+</head>
+<body>
+    <div>
+        <h1>ESERCIZIO INDOVINA NUMERO CON JAVASCRIPT</h1>
+        <h2>Inserisci un numero e prova ad indovinare: <input type="number" min="1" max="100" id="numeroInviato"></h2>
+        <button id="invia">Invia</button>
+        <p id="risultato"></p>
+    </div>
+    <script type="text/javascript">
+
+        const numCasuale = Math.floor(Math.random() * 100) + 1 /// Creazione numero casuale da 1 a 100 ///
+        console.log(numCasuale)
+        let risultato;
+        document.getElementById("invia").onclick = function(){
+            let numScelto = document.getElementById("numeroInviato").value /// prende  il numero inserito in input ///
+            numScelto = parseInt(numScelto)
+            if(numScelto === numCasuale){
+                risultato = "Bravo, hai indovinato"
+            }else if(numScelto > 100){
+                risultato = "il numero inserito non puo' essere maggiore di 100"
+            }else if (numScelto > numCasuale) {
+                risultato = "il numero che hai inserito e' maggiore";
+            }else if(numScelto < numCasuale) {
+                risultato = "il numero che hai inserito e' minore"
+            }
+
+            document.getElementById("risultato").innerText = risultato /// con innerText manda all'id html indicato il testo da inserire ///
+        }
+        
+    </script>
+</body>
+</html>
